@@ -41,6 +41,7 @@ int bin_search(int n, int arr[], unsigned int size)
 	int a=0, b=size-1, c = (a+b)/2;
 
 	while(b - a > 1 && size > 1)
+
 	{
 		if(arr[c] == n)
 			return c;
@@ -75,11 +76,13 @@ void simple_search(int &index1, int &index2, int arr[], int size, int sum)
 	cout << index1 << " " << index2 << endl;
 }
 
+
 // поиск по паре с сортированным (улучшенный)
 void search2(int &index1, int &index2, int arr[], unsigned int size, int sum)
 {
 	int i1=0, i2=size-1;
 	while(i1 != i2 && size > 1)
+
 	{
 		if(arr[i1] + arr[i2] == sum)
 		{
@@ -223,7 +226,9 @@ void task2()
 
     
 
+
 	int samplesize = 10; // количество измерений на одну точку
+
 
 	// измеряет по каждой точке 
 	for(int i=0; i<points; i++)
@@ -243,8 +248,10 @@ void task2()
 			simple_search(a, b, a1, arrsizes[i], -1); //temp_dstr(rng) * 4 в среднем
 		}
 		end = chrono::steady_clock::now(); // конец отчета 
+
 //надо одного
 		file << chrono::duration_cast<chrono::microseconds>(end-start).count()/ samplesize << " "; // переводим в микросекунды
+
 	}
 	file << "\n";
     samplesize = 1000;
@@ -263,11 +270,13 @@ void task2()
 
 		start = chrono::steady_clock::now();
 		for(int j=0; j<samplesize; j++)
+
 			search2(a, b, a1, arrsizes[i], -1); // -1 в худшем
 		end = chrono::steady_clock::now();
         file.close();
         file.open("data2.csv", ios_base::app);
 		file << chrono::duration_cast<chrono::microseconds>(end-start).count() / samplesize << " ";
+
 
 	}
     
@@ -400,5 +409,7 @@ void task3()
 
 int main()
 {
+
 	task2();
+
 }
