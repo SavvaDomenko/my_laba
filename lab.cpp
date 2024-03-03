@@ -36,11 +36,11 @@ int search(int n, int arr[], int size)
 }
 
 //бинарный поиск
-int bin_search(int n, int arr[], int size)
+int bin_search(int n, int arr[], unsigned int size)
 {
 	int a=0, b=size-1, c = (a+b)/2;
 
-	while(b - a > 1)
+	while(b - a > 1 && size > 1)
 	{
 		if(arr[c] == n)
 			return c;
@@ -76,10 +76,10 @@ void simple_search(int &index1, int &index2, int arr[], int size, int sum)
 }
 
 // поиск по паре с сортированным (улучшенный)
-void search2(int &index1, int &index2, int arr[], int size, int sum)
+void search2(int &index1, int &index2, int arr[], unsigned int size, int sum)
 {
 	int i1=0, i2=size-1;
-	while(i1 != i2)
+	while(i1 != i2 && size > 1)
 	{
 		if(arr[i1] + arr[i2] == sum)
 		{
